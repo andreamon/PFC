@@ -17,7 +17,7 @@
             </ul>
         </div>
         @endif
-        <form action="#" method="post">
+        <form action="{{url('peticiones')}}" method="post">
             {{csrf_field()}}
             <div class="form-group">
                 <label for="date">Tipo de Petición</label>
