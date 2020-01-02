@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Post;
 
 class PeticionesController extends Controller
 {
@@ -13,7 +14,10 @@ class PeticionesController extends Controller
 
     public function index()
     {
-        return view('peticiones');
+        //En el array posts se van a almacenar todos los registros de la tabla Posts
+        $posts = Post::get();
+        // return view("home", compact("posts"));
+        return $posts;
     }
 
     /**
@@ -38,6 +42,9 @@ class PeticionesController extends Controller
         }
         elseif($id == 3){
             $tipo ="Reclamo";
+        }
+        elseif($id == 4){
+            $tipo ="Otro tipo";
         }
 
         return view("create",compact("tipo"));

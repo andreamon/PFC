@@ -4,7 +4,15 @@ Route::get('/', 'HomeController@index');
 
 Route::get('peticiones/create/{id}', 'PeticionesController@createByType');
 
-Route::resource('/peticiones','PeticionesController');
+Route::resource('/posts','PeticionesController');
+
+Route::get('vue',function(){
+    return view('home');
+});
+
+Route::get('prueba',function(){
+    return view('prueba');
+});
 
 # Autenticación de usuarios
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');

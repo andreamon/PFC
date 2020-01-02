@@ -1,12 +1,12 @@
 @extends('layouts.plantilla')
-@section('title',"Nuevo $tipo")
+@section('title',$tipo)
 @section('content')
 <div class="row justify-content-center">
     <div class="col-8">
         <!--Espacio en blanco-->
         <div class="col-12">&nbsp;</div>
     </div>
-    <div class="col-8">
+    <div class="col-6">
         @if ($errors->any())
         <div class="alert alert-danger">
             <strong>Se ha detectado el siguiente error</strong><br>
@@ -31,8 +31,8 @@
                 <label for="img">Subir imágenes</label>
                 <input type="file" class="form-control-file" name="input_img">
             </div>
-            <div class="form-group">
-                <input type="submit" class="btn btn-primary" name="enviar" value="Agregar">
+            <div class="form-group ">
+                <input type="submit" class="btn btn-primary" name="enviar" value="Agregar petición">
             </div>
         </form>
     </div>

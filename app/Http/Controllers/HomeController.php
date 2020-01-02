@@ -14,9 +14,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        //En el array posts se van a almacenar todos los registros de la tabla Posts
-        $posts = Post::all();
-        return view("home", compact("posts"));
+        return view('peticiones');
     }
 
     public function create($id)

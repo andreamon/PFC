@@ -1,25 +1,29 @@
 @extends('layouts.plantilla')
 @section('title',"Últimas peticiones")
 @section('content')
-<div class="row">
-    @foreach($posts as $post)
-    <div class="card mb-3 ml-4">
-        <div class="card-body">
-            <h5 class="card-title">{{$post->id}}</h5>
-            <p class="card-text">{{$post->description}}</p>
-            <p class="card-text"><small class="text-muted">{{$post->created_at}}</small></p>
-            <button type="button" class="btn btn-primary btn-sm stretched-link">Ver más</button>
-        </div>
-    </div>
-    @endforeach
-    <!-- <div class="card mb-3 ml-4">
-        <div class="card-body">
-            <h5 class="card-title">Petición 2</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                content. This content is a little bit longer.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            <button type="button" class="btn btn-primary btn-sm stretched-link">Ver más</button>
-        </div>
-    </div> -->
+<div id="app" class="table-responsive">
+    <table class="table table-hover table-sm">
+        <!-- <thead>
+            <tr>
+                <th>Descripcion</th>
+            </tr>
+        </thead> -->
+        <tbody>
+            <tr v-for="post in posts">
+                <td>@{{post.description}}</td>
+                <td class="text-center">
+                    <a href="#" class="btn btn-link" role="button" aria-pressed="true" data-toggle="tooltip"
+                        title="Modificar"><i class="fas fa-pencil-alt"></i></a>
+                    <form action="#" method="POST" style="display:inline-block">
+                        {{ csrf_field() }}
+                        {{ method_field('DELETE') }}
+                        <button type="submit" class="btn btn-link" data-toggle="tooltip" title="Eliminar"><i
+                                class="fas fa-trash-alt"></i></button>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
+
 @endsection
