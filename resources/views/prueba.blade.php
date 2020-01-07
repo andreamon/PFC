@@ -1,38 +1,25 @@
 @extends('layouts.plantilla')
-@section('title',"Componente VUE")
+@section('title',"Peticiones")
 @section('content')
-<button type="button" class="btn btn-primary mostrar" onclick="mostrarToast()">Mostrar</button>
-
-<div role="alert" id="mitoast" aria-live="assertive" aria-atomic="true" class="toast">
- 
-    <div class="toast-header">
-        
-        <!-- Nombre de la Aplicación -->
-        <strong class="mr-auto">Prueba Toast</strong>
-        
-        <!-- Tiempo del Evento realizado -->
-        <small>ahora</small>
-        
-        <!-- Botón para Cerrar el Toast -->
-        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Cerrar" onclick="cerrarToast()">
-            <span aria-hidden="true">×</span>
-        </button>
- 
-    </div>
- 
+<div class="col table-responsive mt-5">
+    <table class="table table-hover table-sprite">
+        <tbody>
+            @foreach($posts as $post)
+            <tr>
+                <td>
+                    <strong>{{$post->category}}</strong>
+                    <div>&nbsp;</div>
+                    <p>{{$post->title}}</p>
+                    <p><small class="text-muted">Realizado por {{$post->user}}</small></p>
+                </td>
+                <td style="vertical-align: inherit;">
+                    <a style="display: flex; align-items: center;" href="#" class="btn btn-link" data-toggle="tooltip" title="Ver más">
+                        Detalles&nbsp;<i class="fas fa-eye"></i>
+                    </a>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
 </div>
-
-<script type="text/javascript">
-// Con esta función se muestra el Toast 
-function mostrarToast() {
-    var toast = document.getElementById("mitoast");
-    toast.className = "mostrar";
-    setTimeout(function(){ toast.className = toast.className.replace("mostrar", ""); }, 5000);
-}
-function cerrarToast() {
-    var toast = document.getElementById("mitoast");
-    toast.className = "cerrar";
-    toast.className = toast.className.replace("cerrar", "");
-}
-</script>
 @endsection

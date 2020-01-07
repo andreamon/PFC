@@ -4,19 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\Services\PostService;
 
 class PeticionesController extends Controller
 {
-    public function __construct()
+    public function __construct(PostService $postService)
     {
+        $this->postService = $postService;
         return $this->middleware('auth');
     }
 
     public function index()
     {
         //En el array posts se van a almacenar todos los registros de la tabla Posts
-        $posts = Post::get();
-        // return view("home", compact("posts"));
+        $posts = $this->postService->getAll();  
         return $posts;
     }
 

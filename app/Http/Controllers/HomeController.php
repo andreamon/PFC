@@ -4,17 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\Services\PostService;
 
 class HomeController extends Controller
 {
-    public function __construct()
+    public function __construct(PostService $postService)
     {
+        $this->postService = $postService;
         return $this->middleware('auth');
     }
 
     public function index()
     {
-        return view('peticiones');
+        $posts = $this->postService->getAll(); 
+        return view('prueba',compact("posts"));
     }
 
     public function create($id)

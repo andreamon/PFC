@@ -10,9 +10,10 @@ Route::get('vue',function(){
     return view('home');
 });
 
-Route::get('prueba',function(){
-    return view('prueba');
-});
+// Route::get('prueba',function(){
+//     $posts = App\Post::get();
+//     return view('prueba',compact("posts"));
+// });
 
 # Autenticación de usuarios
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');

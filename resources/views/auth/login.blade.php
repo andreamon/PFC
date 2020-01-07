@@ -36,7 +36,7 @@
     <div class="container">
         <div class="row ">
             <div class="col-md-4 offset-md-4">
-                <!-- <img src="{{asset('images/patitas_logo.png')}}" class="image-logo" alt="patitas"> -->
+                <!-- <img src="{{asset('images/.png')}}" class="image-logo" alt=""> -->
                 <hr>
                 <div class="card">
                     <div class="card-header">

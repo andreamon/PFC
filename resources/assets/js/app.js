@@ -1,31 +1,19 @@
 
 // require('./bootstrap');
+import 'bootstrap';
 
 // window.Vue = require('vue');
+import Vue from 'vue';
 
-// Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+import ExampleComponent from './components/ExampleComponent';
+import ListComponent from './components/ListComponent';
+import CreateComponent from './components/CreateComponent';
 
 const app = new Vue({
     el: '#app',
-    created: function(){
-        this.getPosts();
+    components: { 
+        "example-component": ExampleComponent,
+        "list": ListComponent,
+        "create": CreateComponent
     },
-    data: {
-        posts: [],
-    },
-    methods: {
-        getPosts: function(){
-            var urlPosts = '/posts';
-            axios.get(urlPosts).then(response =>{
-                this.posts = response.data
-            });
-        },
-        deletePosts: function(post){
-            var urlPosts = '/posts';
-            axios.delete(urlPosts).then(response =>{
-                this.getPosts();
-                toastr.success('Eliminado correctamente');
-            });
-        }
-    }
 });

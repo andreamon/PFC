@@ -17,20 +17,25 @@
             </ul>
         </div>
         @endif
-        <form action="{{url('peticiones')}}" method="post">
+        <form action="#" method="post">
             {{csrf_field()}}
             <div class="form-group">
                 <label for="date">Tipo de Petición</label>
                 <input class="form-control" type="text" name="tipo" readonly placeholder="{{$tipo}}">
             </div>
             <div class="form-group">
+                <label for="">Título</label>
+                <input type="text" class="form-control" name="title" required autofocus></input>
+            </div>
+            <div class="form-group">
                 <label for="">Descripción</label>
-                <textarea type="text" class="form-control" name="descripcion" placeholder="Ingrese su {{$tipo}}" rows="8" required autofocus></textarea>
+                <textarea type="text" class="form-control" name="descripcion" rows="8" required></textarea>
             </div>
             <div class="form-group">
                 <label for="img">Subir imágenes</label>
                 <input type="file" class="form-control-file" name="input_img">
             </div>
+            <br>
             <div class="form-group ">
                 <input type="submit" class="btn btn-primary" name="enviar" value="Agregar petición">
             </div>
