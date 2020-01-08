@@ -58,7 +58,7 @@ class PeticionesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return response()->json('Petición creada con éxito');
     }
 
     /**
