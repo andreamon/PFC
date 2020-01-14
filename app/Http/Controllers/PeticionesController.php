@@ -39,10 +39,10 @@ class PeticionesController extends Controller
             $tipo = "Consulta";
         }
         elseif ($id == 2){
-            $tipo = "Solicitud";
+            $tipo = "Reclamo";
         }
         elseif($id == 3){
-            $tipo ="Reclamo";
+            $tipo ="Solicitud";
         }
         elseif($id == 4){
             $tipo ="Otro tipo";
@@ -58,7 +58,7 @@ class PeticionesController extends Controller
      */
     public function store(Request $request)
     {
-        return response()->json('Petición creada con éxito');
+        // return response()->json('Petición creada con éxito');
     }
 
     /**

@@ -17,7 +17,7 @@ class HomeController extends Controller
     public function index()
     {
         $posts = $this->postService->getAll(); 
-        return view('prueba',compact("posts"));
+        return view('home');
     }
 
     public function create($id)

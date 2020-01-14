@@ -4,16 +4,11 @@ Route::get('/', 'HomeController@index');
 
 Route::get('peticiones/create/{id}', 'PeticionesController@createByType');
 
-Route::resource('/posts','PeticionesController');
+Route::resource('/posts','PeticionesController', ['except' => 'create']);
 
-Route::get('vue',function(){
-    return view('home');
+Route::get('prueba',function(){
+    return view('prueba');
 });
-
-// Route::get('prueba',function(){
-//     $posts = App\Post::get();
-//     return view('prueba',compact("posts"));
-// });
 
 # Autenticación de usuarios
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');

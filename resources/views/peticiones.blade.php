@@ -8,8 +8,8 @@
 
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
     <a class="dropdown-item" href="{{url('peticiones/create/1')}}">Consulta</a>
-    <a class="dropdown-item" href="{{url('peticiones/create/2')}}">Solicitud</a>
-    <a class="dropdown-item" href="{{url('peticiones/create/3')}}">Reclamo</a>
+    <a class="dropdown-item" href="{{url('peticiones/create/2')}}">Reclamo</a>
+    <a class="dropdown-item" href="{{url('peticiones/create/3')}}">Solicitud</a>
     <a class="dropdown-item" href="{{url('peticiones/create/4')}}">Otros</a>
   </div>
 </div>

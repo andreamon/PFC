@@ -1,6 +1,6 @@
 
 // require('./bootstrap');
-import 'bootstrap';
+// import 'bootstrap';
 
 // window.Vue = require('vue');
 import Vue from 'vue';
@@ -12,7 +12,7 @@ import CreateComponent from './components/CreateComponent';
 const app = new Vue({
     el: '#app',
     components: { 
-        "example-component": ExampleComponent,
+        ExampleComponent,
         "list": ListComponent,
         "create": CreateComponent
     },

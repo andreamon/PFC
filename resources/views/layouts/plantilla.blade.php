@@ -51,13 +51,13 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{url('peticiones/create/2')}}">
                                 <span data-feather="file-text"></span>
-                                Solicitud
+                                Reclamo
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{url('peticiones/create/3')}}">
                                 <span data-feather="file-text"></span>
-                                Reclamo
+                                Solicitud
                             </a>
                         </li>
                         <li class="nav-item">
