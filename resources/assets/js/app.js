@@ -13,7 +13,7 @@ const app = new Vue({
     el: '#app',
     components: { 
         ExampleComponent,
-        "list": ListComponent,
+        ListComponent,
         "create": CreateComponent
     },
 });

@@ -2,6 +2,6 @@
 @section('title',"Prueba")
 @section('content')
 <div id="app">
-    <example-component></example-component>
+    <example-component category='Otro tipo'></example-component>
 </div>
 @endsection

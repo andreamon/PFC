@@ -48,7 +48,9 @@ class PeticionesController extends Controller
             $tipo ="Otro tipo";
         }
 
-        return view("create",compact("tipo"));
+        $tipo = ["id" => $id, "name" => $tipo];
+        
+        return view("create", compact("tipo"));
     }
     /**
      * Store a newly created resource in storage.
@@ -58,7 +60,15 @@ class PeticionesController extends Controller
      */
     public function store(Request $request)
     {
-        // return response()->json('Petición creada con éxito');
+        $user_id = auth()->user()->id;
+        $post = new Post;
+        $post->user_id = $user_id;
+        
+        $post->category_id = $request->get('category');
+        $post->title = $request->get('title');
+        $post->description = $request->get('description');
+
+        $post->save();
     }
 
     /**

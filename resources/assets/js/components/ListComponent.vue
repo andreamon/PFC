@@ -7,7 +7,7 @@
                     <strong>{{post.category}}</strong>
                     <div>&nbsp;</div>
                     <p>{{post.title}}</p>
-                    <p><small class="text-muted">Realizado por {{post.user}}</small></p>
+                    <p><small class="text-muted">Realizado por {{post.user}} el {{post.created}}</small></p>
                 </td>
                 <td style="vertical-align: inherit;">
                     <a style="display: flex; align-items: center;" href="#" class="btn btn-link" data-toggle="tooltip" title="Ver más">
@@ -21,6 +21,9 @@
 </template>
 <script>
     import axios from 'axios';
+    import toastr from 'toastr';
+    import moment from 'moment';
+
     export default{
         created(){
             this.getPosts();
@@ -31,6 +34,9 @@
             }
         },
         methods: {
+            since: function(d){
+                return moment(d).format();
+            },
             getPosts: function(){
                 var urlPosts = '/posts';
                 axios.get(urlPosts).then(response =>{

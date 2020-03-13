@@ -2,6 +2,6 @@
 @section('title',"Inicio")
 @section('content')
 <div id="app" class="row justify-content-center">
-    <list></list>
+    <list-component></list-component>
 </div>
 @endsection

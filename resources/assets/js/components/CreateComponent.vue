@@ -8,7 +8,7 @@
         <form action="" @submit.prevent="addPost" method="post">
             <div class="form-group">
                 <label for="">Tipo de Petición</label>
-                <input class="form-control" type="text" name="tipo" readonly v-model="category">
+                <input class="form-control" type="text" name="tipo" readonly v-model="category.name">
             </div>
             <div class="form-group">
                 <label for="">Título</label>
@@ -17,6 +17,10 @@
             <div class="form-group">
                 <label for="">Descripción</label>
                 <textarea type="text" class="form-control" name="descripcion" rows="8" required v-model="post.description"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="file">Añadir imagen/es</label><br>
+                <input type="file" id="file" multiple>
             </div>
             
             <br>
@@ -30,9 +34,15 @@
 
 <script>
     import axios from 'axios';
+    import toastr from 'toastr';
 
     export default {
-        props: ['category'],
+        props: {
+            category:{
+                id:'category.id',
+                name:'category.name'
+            }
+        },
         data(){
             return{
                 post: {title:'', description: ''}
@@ -41,10 +51,16 @@
         methods:{
             addPost: function(){
                 var urlPosts = '/posts';
-                axios.post(urlPosts,this.post)
+                axios.post(urlPosts,{
+                    'category':this.category.id,
+                    'title':this.post.title,
+                    'description':this.post.description
+                })
                 .then(response =>{
                     this.post = [],
-                    location.href = '/'
+                    this.category = {},
+                    location.href = '/',
+                    alert('La petición ha sido registrada correctamente')
                 });
                 console.log(this.post);
             }
