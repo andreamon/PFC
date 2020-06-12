@@ -50,7 +50,6 @@ export default {
       var urlPosts = "/posts";
       axios.get(urlPosts).then(response => {
         this.posts = response.data;
-        console.log(this.posts);
       });
     }
   }

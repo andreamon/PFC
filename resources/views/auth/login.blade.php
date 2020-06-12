@@ -8,31 +8,17 @@
     <!-- El helper asset nos dará la ruta absoluta al archivo indicado -->
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('estilos.css')}}">
-    <!-- <link href="{{asset('lib/fontawesome/css/all.min.css')}}" rel="stylesheet"> -->
-    <!-- <link href="{{asset('lib/lightbox/ekko-lightbox.css')}}" rel="stylesheet"> -->
     <style>
-    body{
-        background-color: #F2F2F2;
-    }
-    .image-logo {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .registro {
-        text-align: center;
-        margin-bottom: 20px;
-    }
-
-    .container {
-        /* margin-bottom: 100px; */
-        margin-top: 25px;
-    }
-
-    .pie {
-        clear: both;
-    }
+        body {
+            background-color: #F2F2F2;
+        }
+        .registro {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .container {
+            margin-top: 25px;
+        }
     </style>
 </head>
 
@@ -40,12 +26,9 @@
     <div class="container">
         <div class="row ">
             <div class="col-md-4 offset-md-4">
-                <!-- <img src="{{asset('images/.png')}}" class="image-logo" alt=""> -->
                 <div class="card" id="card-login">
-                    <div class="card-header">
-                        <h5 class="card-title text-center">Acceso a la aplicación</h5>
-                    </div>
                     <div class="card-body">
+                        <h5 class="card-title text-center p-3"><strong>Sistema de Peticiones</strong></h5>
                         <form method="POST" action="{{route('login')}}">
                             {{csrf_field()}}
                             <div class="form-group {{ $errors->has('email') ? 'alert alert-danger' : '' }}">
@@ -70,5 +53,4 @@
         </div>
     </div>
 </body>
-
 </html>

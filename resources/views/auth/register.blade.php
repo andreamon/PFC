@@ -8,12 +8,11 @@
     <!-- El helper asset nos dará la ruta absoluta al archivo indicado -->
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('lib/fontawesome/css/all.min.css')}}" rel="stylesheet">
-    <link href="{{asset('lib/lightbox/ekko-lightbox.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('estilos.css')}}">
+
     <style>
-    .image-logo {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
+    body {
+        background-color: #F2F2F2;
     }
 
     .registro {
@@ -22,48 +21,42 @@
     }
 
     .container {
-        margin-bottom: 100px;
-        margin-top: 50px;
-    }
-
-    .pie {
-        clear: both;
+        margin-top: 25px;
     }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <div class="row ">
+        <div class="row">
             <div class="col-md-6 offset-md-3">
-                <!-- <img src="{{asset('images/patitas_logo.png')}}" class="image-logo" alt="patitas"> -->
-                <hr>
-                <div class="card">
-                    <div class="card-header">
-                        <h5 class="card-title text-center">Registro de usuarios</h5>
-                    </div>
+                <div class="card" id="card-login">
                     <div class="card-body">
+                        <h5 class="card-title text-center p-3"><strong>Registro de usuarios</strong></h5>
                         <form method="POST" action="{{route('register')}}">
                             {{csrf_field()}}
-                            <div class="form-group">
+                            <div class="form-group {{ $errors->has('name') ? 'alert alert-danger' : '' }}">
                                 <label for="name">Nombre</label>
-                                <input class="form-control" type="text" name="name" id="name"
+                                <input class="form-control" type="text" name="name" id="name" value="{{ old('name')}}"
                                     placeholder="Ingresar nombre">
+                                {!! $errors->first('name','<small class="help-block">:message</small>') !!}
                             </div>
-                            <div class="form-group">
+                            <div class="form-group {{ $errors->has('email') ? 'alert alert-danger' : '' }}">
                                 <label for="email">Email</label>
-                                <input class="form-control" type="email" name="email" placeholder="Ingresar email">
+                                <input class="form-control" type="email" name="email" value="{{ old('email')}}" placeholder="Ingresar email">
+                                {!! $errors->first('email','<small class="help-block">:message</small>') !!}
                             </div>
                             <div class="form-group {{ $errors->has('password') ? 'alert alert-danger' : '' }}">
                                 <label for="password">Contraseña</label>
                                 <input class="form-control" type="password" name="password" id="password"
                                     placeholder="Ingresar contraseña">
-                                {!! $errors->first('password','<span class="help-block">:message</span>') !!}
+                                {!! $errors->first('password','<small class="help-block">:message</small>') !!}
                             </div>
-                            <div class="form-group">
+                            <div class="form-group {{ $errors->has('password') ? 'alert alert-danger' : '' }}">
                                 <label for="password_confirmation">Confirmar contraseña</label>
                                 <input class="form-control" type="password" name="password_confirmation"
                                     id="password_confirmation" placeholder="Confirmar contraseña">
+                                {!! $errors->first('password','<small class="help-block">:message</small>') !!}
                             </div>
                             <button class="btn btn-primary btn-block">Agregar</button>
                         </form>

@@ -1,7 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Paaji+2&family=Roboto&display=swap');
-main {
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap');
+body {
     font-family: 'Baloo Paaji 2', cursive;
     font-size: 16px;
+}
+
+.navbar {
+    background-color: #2ABFBF;
+}
+
+.navbar-brand{
+    background-color: transparent;
+    box-shadow: none;
+    font-family: 'Balsamiq Sans', cursive;
+}
+
+#navbarDropdown{
+    cursor: pointer;
 }
 
 main .container {
@@ -16,5 +31,6 @@ main .container {
     /* box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
     border-top: transparent;
     border-right: transparent; */
-    margin-top: 100px;
+    margin-top: 1rem;
+    /* margin-bottom: 2rem; */
 }

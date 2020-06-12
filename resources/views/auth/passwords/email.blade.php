@@ -8,26 +8,17 @@
     <!-- El helper asset nos dará la ruta absoluta al archivo indicado -->
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('lib/fontawesome/css/all.min.css')}}" rel="stylesheet">
-    <link href="{{asset('lib/lightbox/ekko-lightbox.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('estilos.css')}}">
     <style>
-    .image-logo {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
+    body {
+        background-color: #F2F2F2;
     }
-
     .registro {
         text-align: center;
         margin-bottom: 20px;
     }
-
     .container {
-        margin-bottom: 100px;
-        margin-top: 50px;
-    }
-
-    .pie {
-        clear: both;
+        margin-top: 25px;
     }
     </style>
 </head>
@@ -36,12 +27,9 @@
     <div class="container">
         <div class="row ">
             <div class="col-md-4 offset-md-4">
-                <hr>
-                <div class="card">
-                    <div class="card-header">
-                        <h5 class="card-title text-center">Restablecer contraseña</h5>
-                    </div>
+                <div class="card" id="card-login">
                     <div class="card-body">
+                        <h5 class="card-title text-center p-3"><strong>Restablecer contraseña</strong></h5>
                         @if (session('status'))
                         <div class="alert alert-success">{{session('status')}}</div>
                         @endif
@@ -50,7 +38,7 @@
                             <div class="form-group {{ $errors->has('email') ? 'alert alert-danger' : '' }}">
                                 <label for="email">Email</label>
                                 <input class="form-control" type="email" name="email">
-                                {!! $errors->first('email','<span class="help-block">:message</span>') !!}
+                                {!! $errors->first('email','<small class="help-block">:message</small>') !!}
                             </div>
                             <button class="btn btn-primary btn-block">Recuperar contraseña</button>
                         </form>
@@ -61,5 +49,4 @@
         </div>
     </div>
 </body>
-
 </html>
