@@ -7,9 +7,13 @@
     <title>Proyectito</title>
     <!-- El helper asset nos dará la ruta absoluta al archivo indicado -->
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('estilos.css')}}">
     <!-- <link href="{{asset('lib/fontawesome/css/all.min.css')}}" rel="stylesheet"> -->
     <!-- <link href="{{asset('lib/lightbox/ekko-lightbox.css')}}" rel="stylesheet"> -->
     <style>
+    body{
+        background-color: #F2F2F2;
+    }
     .image-logo {
         display: block;
         margin-left: auto;
@@ -22,8 +26,8 @@
     }
 
     .container {
-        margin-bottom: 100px;
-        margin-top: 50px;
+        /* margin-bottom: 100px; */
+        margin-top: 25px;
     }
 
     .pie {
@@ -37,8 +41,7 @@
         <div class="row ">
             <div class="col-md-4 offset-md-4">
                 <!-- <img src="{{asset('images/.png')}}" class="image-logo" alt=""> -->
-                <hr>
-                <div class="card">
+                <div class="card" id="card-login">
                     <div class="card-header">
                         <h5 class="card-title text-center">Acceso a la aplicación</h5>
                     </div>
@@ -49,13 +52,13 @@
                                 <label for="email">Email</label>
                                 <input class="form-control" type="email" name="email" value="{{ old('email')}}"
                                     placeholder="Ingresar email" autofocus>
-                                {!! $errors->first('email','<span class="help-block">:message</span>') !!}
+                                {!! $errors->first('email','<small class="help-block">:message</small>') !!}
                             </div>
                             <div class="form-group {{ $errors->has('password') ? 'alert alert-danger' : '' }}">
                                 <label for="password">Contraseña</label>
                                 <input class="form-control" type="password" name="password"
                                     placeholder="Ingresar contraseña">
-                                {!! $errors->first('password','<span class="help-block">:message</span>') !!}
+                                {!! $errors->first('password','<small class="help-block">:message</small>') !!}
                             </div>
                             <button class="btn btn-primary btn-block">Acceder</button>
                         </form>

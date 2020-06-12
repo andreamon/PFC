@@ -1,7 +1,7 @@
 @extends('layouts.plantilla')
-@section('title',"Listado")
+@section('title',"Post N° ". $id)
 @section('content')
 <div id="app">
-    <page />
+    <item :id="{{json_encode($id)}}" />
 </div>
 @endsection

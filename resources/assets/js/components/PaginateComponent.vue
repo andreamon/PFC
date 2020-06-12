@@ -1,8 +1,8 @@
 <template>
   <div class="col-10 table-responsive mt-5">
     <table class="table table-hover table-sprite">
-      <tbody>
-        <tr v-for="post in posts" :key="post.id">
+      <paginate name="posts" :list="posts" :per="3" tag="tbody">
+        <tr v-for="post in paginated('posts')" :key="post.id">
           <td>
             <strong>{{post.category}}</strong>
             <div>&nbsp;</div>
@@ -13,33 +13,33 @@
             </p>
           </td>
           <td style="vertical-align: inherit;">
-            <a
-              
-              href="#"
-              class="btn btn-link icon"
-              data-toggle="tooltip"
-              title="Ver más"
-            >
-            <i class="fas fa-eye"></i>&nbsp;Detalles
-            </a>
+            <view-detail :id="post.id" />
           </td>
         </tr>
-      </tbody>
+      </paginate>
+      <paginate-links
+        for="posts"
+        :classes="{'ul': 'pagination', 'li': 'page-item', 'a': 'page-link'}"
+      ></paginate-links>
     </table>
   </div>
 </template>
 <script>
 import axios from "axios";
-import toastr from "toastr";
 import moment from "moment";
+import ViewDetail from './ViewDetail';
 
 export default {
+  components:{
+    "view-detail": ViewDetail
+  },
   created() {
     this.getPosts();
   },
   data() {
     return {
-      posts: []
+      posts: [],
+      paginate: ["posts"]
     };
   },
   methods: {
@@ -56,6 +56,7 @@ export default {
   }
 };
 </script>
+
 <style scoped>
 .icon {
   display: flex;

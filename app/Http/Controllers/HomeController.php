@@ -20,20 +20,20 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function create($id)
-    {
-        if ($id == 1)
-        {
-            $tipo = "Consulta";
-        }
-        elseif ($id == 2){
-            $tipo = "Solicitud";
-        }
-        elseif($id == 3){
-            $tipo ="Reclamo";
-        }
+    // public function create($id)
+    // {
+    //     if ($id == 1)
+    //     {
+    //         $tipo = "Consulta";
+    //     }
+    //     elseif ($id == 2){
+    //         $tipo = "Solicitud";
+    //     }
+    //     elseif($id == 3){
+    //         $tipo ="Reclamo";
+    //     }
 
-        return view("create",compact("tipo"));
+    //     return view("create",compact("tipo"));
         
-    }
+    // }
 }

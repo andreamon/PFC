@@ -79,7 +79,8 @@ class PeticionesController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Post::find($id);
+        return view('show_post', ['id' => $id]);
     }
 
     /**

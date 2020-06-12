@@ -6,13 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Proyectito</title>
-    
+
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('dashboard.css')}}" rel="stylesheet">
     <link href="{{asset('lib/fontawesome/css/all.min.css')}}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('estilos.css')}}">
     <meta name="csrf-token" value="{{ csrf_token() }}" />
     <!-- <link rel="stylesheet" href="{{asset('css/app.css')}}"> -->
+    
 </head>
 
 <body>
@@ -31,7 +33,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('peticiones')}}">
+                            <a class="nav-link" href="{{url('/')}}">
                                 <span data-feather="file"></span>
                                 Mis Peticiones
                             </a>
@@ -87,7 +89,7 @@
     <script src="{{asset('lib/jquery/jquery-3.4.1.js')}}"></script>
     <!-- <script src="{{asset('js/bootstrap.min.js')}}"></script> -->
     <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
-    
+
 </body>
 
 </html>

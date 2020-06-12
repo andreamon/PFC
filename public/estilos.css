@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Paaji+2&family=Roboto&display=swap');
+main {
+    font-family: 'Baloo Paaji 2', cursive;
+    font-size: 16px;
+}
+
+main .container {
+    margin: 1rem 0;
+}
+
+#card-login {
+    box-shadow: 0 0 1px 0 rgba(8, 11, 14, 0.06), 0 16px 16px -1px rgba(8, 11, 14, 0.1);
+    border-radius: 12px;
+    border: 1px solid #F7F8F9;
+    padding: 15px 15px 0px 15px;
+    /* box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    border-top: transparent;
+    border-right: transparent; */
+    margin-top: 100px;
+}

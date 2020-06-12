@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'failed' => 'Los datos ingresados no coinciden con ningún usuario registrado.',
+    'failed' => 'Los datos ingresados no coinciden con ningún usuario registrado. Verifique el email o contraseña.',
     'throttle' => 'Demasiados intentos. Por favor intenta de nuevo en :seconds segundos.',
 
 ];
