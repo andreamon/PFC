@@ -1,56 +1,31 @@
-<!DOCTYPE html>
-<html>
+@extends('auth.layout')
 
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Proyectito</title>
-    <!-- El helper asset nos dará la ruta absoluta al archivo indicado -->
-    <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('estilos.css')}}">
-    <style>
-        body {
-            background-color: #F2F2F2;
-        }
-        .registro {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .container {
-            margin-top: 25px;
-        }
-    </style>
-</head>
+@section('title','Iniciar sesión')
 
-<body>
-    <div class="container">
-        <div class="row ">
-            <div class="col-md-4 offset-md-4">
-                <div class="card" id="card-login">
-                    <div class="card-body">
-                        <h5 class="card-title text-center p-3"><strong>Sistema de Peticiones</strong></h5>
-                        <form method="POST" action="{{route('login')}}">
-                            {{csrf_field()}}
-                            <div class="form-group {{ $errors->has('email') ? 'alert alert-danger' : '' }}">
-                                <label for="email">Email</label>
-                                <input class="form-control" type="email" name="email" value="{{ old('email')}}"
-                                    placeholder="Ingresar email" autofocus>
-                                {!! $errors->first('email','<small class="help-block">:message</small>') !!}
-                            </div>
-                            <div class="form-group {{ $errors->has('password') ? 'alert alert-danger' : '' }}">
-                                <label for="password">Contraseña</label>
-                                <input class="form-control" type="password" name="password"
-                                    placeholder="Ingresar contraseña">
-                                {!! $errors->first('password','<small class="help-block">:message</small>') !!}
-                            </div>
-                            <button class="btn btn-primary btn-block">Acceder</button>
-                        </form>
+@section('content')
+    <div class="col-md-4 offset-md-4">
+        <div class="card" id="card-login">
+            <div class="card-body">
+                <h5 class="card-title text-center p-3"><strong>Sistema de Peticiones</strong></h5>
+                <form method="POST" action="{{route('login')}}">
+                    {{csrf_field()}}
+                    <div class="form-group {{ $errors->has('email') ? 'alert alert-danger' : '' }}">
+                        <label for="email">Email</label>
+                        <input class="form-control" type="email" name="email" value="{{ old('email')}}"
+                            placeholder="Ingresar email" autofocus>
+                        {!! $errors->first('email','<small class="help-block">:message</small>') !!}
                     </div>
-                    <div class="registro"><a href="{{url('register')}}">¿No tenés usuario? Registrate</a></div>
-                    <div class="registro"><a href="{{url('password/reset')}}">¿Olvidaste tu contraseña?</a></div>
-                </div>
+                    <div class="form-group {{ $errors->has('password') ? 'alert alert-danger' : '' }}">
+                        <label for="password">Contraseña</label>
+                        <input class="form-control" type="password" name="password"
+                            placeholder="Ingresar contraseña">
+                        {!! $errors->first('password','<small class="help-block">:message</small>') !!}
+                    </div>
+                    <button class="btn btn-primary btn-block">Acceder</button>
+                </form>
             </div>
+            <div class="registro"><a href="{{url('register')}}">¿No tenés usuario? Registrate</a></div>
+            <div class="registro"><a href="{{url('password/reset')}}">¿Olvidaste tu contraseña?</a></div>
         </div>
     </div>
-</body>
-</html>
+@endsection
